@@ -3,12 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Authentication Demo</title>
+    <title>VLinkPay Integration</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <div class="button-container">
-      <button class="vlinkpay-button" onclick="openPopup()">Mở VLinkPay</button>
+      <button class="vlinkpay-button" onclick="openPopup()">Open VLinkPay</button>
     </div>
 
     <div class="popup-overlay" id="popup" onclick="closePopupOnOverlay(event)">
@@ -18,7 +18,7 @@
           <iframe
             src="https://staging-web-app.vlinkpay.com/embed/common?ref=0D2E1454"
             width="500"
-            height="500"
+            height="800"
           >
           </iframe>
         </div>
@@ -40,22 +40,22 @@
         }
       }
 
-      // Đóng popup khi nhấn ESC
+      // Close popup when ESC key is pressed
       document.addEventListener("keydown", function (event) {
         if (event.key === "Escape") {
           closePopup();
         }
       });
 
-      //Listen event for sign in 
+      // Listen for sign in events
       window.addEventListener('message', (event) => {
-        console.log(event.data.type); //signin_error or signin_success
-        console.log(event.data.url) //Redirect link after sign in success
+        console.log(event.data.type); // signin_error or signin_success
+        console.log(event.data.url); // Redirect URL after successful sign in
       });
 
-     //Listen event for sign up 
+      // Listen for sign up events
       window.addEventListener('message', (event) => {
-        console.log(event.data.type) // register_error or register_success
+        console.log(event.data.type); // register_error or register_success
       });
     </script>
   </body>
