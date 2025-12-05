@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentication Demo</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+
+   <div class="button-container">
+        <button class="vlinkpay-button" onclick="openPopup()">
+            Mở VLinkPay
+        </button>
+    </div>
+
+      <div class="popup-overlay" id="popup" onclick="closePopupOnOverlay(event)">
+        <div class="popup-content">
+            <button class="popup-close" onclick="closePopup()">×</button>
+            <div class="popup-body">
+                <iframe 
+                    src="http://localhost:4200/embed/common?ref=8989898" 
+                    width="500"
+                    height="500">
+                </iframe>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openPopup() {
+            document.getElementById('popup').classList.add('active');
+        }
+
+        function closePopup() {
+            document.getElementById('popup').classList.remove('active');
+        }
+
+        function closePopupOnOverlay(event) {
+            if (event.target.id === 'popup') {
+                closePopup();
+            }
+        }
+
+        // Đóng popup khi nhấn ESC
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closePopup();
+            }
+        });
+    </script>
+</body>
+</html>
