@@ -16,7 +16,7 @@
         <button class="popup-close" onclick="closePopup()">×</button>
         <div class="popup-body">
           <iframe
-            src="http://test-web-app.vlinkpay.com/embed/common?ref=0D2E1454"
+            src="http://localhost:4200/embed/common?ref=0D2E1454"
             width="500"
             height="500"
           >
@@ -50,7 +50,7 @@
       //Listen event for sign in 
       window.addEventListener('message', (event) => {
         console.log(event.data.type); //signin_error or signin_success
-        console.log(event.data.redirectUrl) //Redirect link after sign in success
+        console.log(event.data.url) //Redirect link after sign in success
       });
 
      //Listen event for sign up 
